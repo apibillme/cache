@@ -10,3 +10,16 @@ It is based on the LRU implementation in golang-lru:
 Which in turn is based on the LRU implementation in groupcache:
 [github.com/golang/groupcache/lru](http://godoc.org/github.com/golang/groupcache/lru)
 
+```go
+ import (
+     "github.com/apibillme/cache"
+ )
+
+l := New(128, WithTTL(2*time.Second)) // create new cache with ttl and fixed size of 128 keys
+l.Set(1, 1) // set key
+l.Get(1) // get key
+l.Del(1) // delete key
+
+```
+
+For more methods read the GoDoc.
