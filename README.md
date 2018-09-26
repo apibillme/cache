@@ -1,4 +1,4 @@
-# cache - In-memory cache for Go (golang) with fixed entires, Global & Key TTLs, and LRU eviction.
+# cache - In-memory cache for Go (golang) with TTL and LRU.
 
 [![Go Report](https://goreportcard.com/badge/github.com/apibillme/cache)](https://goreportcard.com/report/github.com/apibillme/cache) [![GolangCI](https://golangci.com/badges/github.com/apibillme/cache.svg)](https://golangci.com/r/github.com/apibillme/cache) [![Travis](https://travis-ci.org/apibillme/cache.svg?branch=master)](https://travis-ci.org/apibillme/cache#) [![codecov](https://codecov.io/gh/apibillme/cache/branch/master/graph/badge.svg)](https://codecov.io/gh/apibillme/cache) ![License](https://img.shields.io/github/license/apibillme/cache.svg) ![Maintenance](https://img.shields.io/maintenance/yes/2018.svg) [![GoDoc](https://godoc.org/github.com/apibillme/cache?status.svg)](https://godoc.org/github.com/apibillme/cache)
 
