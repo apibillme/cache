@@ -15,7 +15,7 @@ Which in turn is based on the LRU implementation in groupcache:
      "github.com/apibillme/cache"
  )
 
-l := cache.New(128, WithTTL(2*time.Second)) // create new cache with ttl and fixed size of 128 keys
+l := cache.New(128, cache.WithTTL(2*time.Second)) // create new cache with ttl and fixed size of 128 keys
 l.Set(1, 1) // set key
 l.Get(1) // get key
 l.Del(1) // delete key
