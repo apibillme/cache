@@ -1,11 +1,35 @@
 package cache
 
 import (
+	"math/rand"
 	"testing"
 	"time"
 
 	. "github.com/smartystreets/goconvey/convey"
 )
+
+// Returns an int >= min, < max
+func randomInt(min, max int) int {
+	return min + rand.Intn(max-min)
+}
+
+func benchmarkSet(i int, b *testing.B) {
+	rand.Seed(time.Now().UnixNano())
+	for n := 0; n < b.N; n++ {
+		l := New(128, WithTTL(20*time.Second))
+		for c := 0; c < i; c++ {
+			rint1 := randomInt(10000, 50000)
+			rint2 := randomInt(10000, 50000)
+			l.Set(rint1, rint2)
+		}
+		l.Purge()
+	}
+}
+
+func BenchmarkSet100(b *testing.B) { benchmarkSet(100, b) }
+func BenchmarkSet200(b *testing.B) { benchmarkSet(200, b) }
+func BenchmarkSet400(b *testing.B) { benchmarkSet(400, b) }
+func BenchmarkSet800(b *testing.B) { benchmarkSet(800, b) }
 
 func TestTTL(t *testing.T) {
 	Convey("TestTTL", t, func() {

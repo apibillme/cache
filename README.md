@@ -10,6 +10,7 @@ It is based on the LRU implementation in golang-lru:
 Which in turn is based on the LRU implementation in groupcache:
 [github.com/golang/groupcache/lru](http://godoc.org/github.com/golang/groupcache/lru)
 
+##  Example
 ```go
  import (
      "github.com/apibillme/cache"
@@ -19,7 +20,18 @@ l := cache.New(128, cache.WithTTL(2*time.Second)) // create new cache with ttl a
 l.Set(1, 1) // set key
 l.Get(1) // get key
 l.Del(1) // delete key
+```
+For more methods read the GoDoc.
+
+## Benchmark
+
+As a loop is used based on the number of elements with setting unique keys O(n) - setting a value in the cache regardless of eviction (benchmark set to 128 unique) seems O(1).
 
 ```
+BenchmarkSet100-4   	   10000	    101014 ns/op
+BenchmarkSet200-4   	   10000	    190866 ns/op
+BenchmarkSet400-4   	    5000	    373837 ns/op
+BenchmarkSet800-4   	    2000	    784841 ns/op
+```
 
-For more methods read the GoDoc.
+
