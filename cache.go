@@ -1,4 +1,4 @@
-// Package ttlru provides a simple, goroutine safe, cache with a fixed number of
+// Package cache provides a simple, goroutine safe, cache with a fixed number of
 // entries. Each entry has a per-cache defined TTL. This TTL is reset on both
 // modification and access to the value. As a result, if the cache is full, and
 // no items have expired, when adding a new item, the item with the soonest
